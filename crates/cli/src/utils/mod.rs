@@ -98,12 +98,6 @@ fn env_filter() -> tracing_subscriber::EnvFilter {
     filter
 }
 
-pub fn abi_to_solidity(abi: &JsonAbi, name: &str) -> Result<String> {
-    let s = abi.to_sol(name, None);
-    let s = forge_fmt::format(&s)?;
-    Ok(s)
-}
-
 /// Returns a [RetryProvider] instantiated using [Config]'s
 /// RPC
 pub fn get_provider(config: &Config) -> Result<RetryProvider> {
